@@ -1,5 +1,6 @@
 .cards {
   margin-top: 50px;
+  padding: 0;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 282px 17px 282px 17px 282px;

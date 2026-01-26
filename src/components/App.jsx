@@ -1,6 +1,6 @@
-import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
-import Footer from "./components/Footer/footer";
+import Header from "./Header/Header.jsx";
+import Main from "./Main/Main.jsx";
+import Footer from "./Footer/Footer.jsx";
 
 export default function App() {
   return (

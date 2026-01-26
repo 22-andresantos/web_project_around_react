@@ -1,4 +1,4 @@
-.button__submit {
+.button {
   width: 358px;
   height: 50.15px;
   border-radius: 2px 0px 0px 0px;
@@ -15,11 +15,11 @@
   cursor: pointer;
 }
 
-.button__submit:hover {
+.button:hover {
   opacity: 80%;
 }
 
-.button__submit:disabled {
+.button:disabled {
   color: #b8b8b8;
   background: #ededed;
   pointer-events: none;
@@ -27,24 +27,6 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.button__close {
-  position: absolute;
-  right: -40px;
-  top: -40px;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-}
-
-.button__popup-close {
-  width: 40px;
-  height: 40px;
-}
-
-.button__popup-close:hover {
-  opacity: 60%;
 }
 
 .button__profile-open {
@@ -105,18 +87,18 @@
 }
 
 /* card buttons */
-.button__remove-open {
+.button__remove-card {
   border: none;
   width: 18px;
   height: 19.3px;
-  background: url(../images/Trash.png) center no-repeat;
+  background: url(../images/button_trash.png) center no-repeat;
   cursor: pointer;
   position: absolute;
   top: 19px;
   left: 243px;
 }
 
-.button__remove-open:hover {
+.button__remove-card:hover {
   opacity: 60%;
 }
 
@@ -155,16 +137,6 @@
     width: 238px;
     height: 46px;
     font-size: 14px;
-  }
-
-  .button__close {
-    right: -30px;
-    top: -30px;
-  }
-
-  .button__popup-close {
-    width: 26px;
-    height: 26px;
   }
 
   .button__profile-open {
