@@ -46,40 +46,48 @@ export default function Main() {
     <main className="content">
       <section className="profile">
         <div className="profile__overlay">
-          <img src={Avatar} alt="Avatar Image" className="profile__image" />
+          <img
+            onClick={() => handleOpenPopup(newEditAvatar)}
+            src={Avatar}
+            alt="Avatar Image"
+            className="profile__image"
+          />
 
           <img
             src={button_edit}
             alt="Button Edit Image"
             className="profile__image-edit"
             type="button"
-            onClick={() => handleOpenPopup(newEditAvatar)}
           />
         </div>
 
         <div className="profile__info">
           <h2 className="profile__title">Jacques Cousteau</h2>
 
-          <button className=" button__profile-open">
+          <button
+            onClick={() => handleOpenPopup(newEditProfile)}
+            className=" button__profile-open"
+          >
             <img
               className="button__profile-edit"
               src={button_edit}
               alt="Button Open"
               type="button"
-              onClick={() => handleOpenPopup(newEditProfile)}
             />
           </button>
 
           <h2 className="profile__subtitle">Explorador</h2>
         </div>
 
-        <button className="button__profile-add">
+        <button
+          onClick={() => handleOpenPopup(newCardPopup)}
+          className="button__profile-add"
+        >
           <img
             className="button__profile-card"
             src={button_card}
             alt="Button Open Add Card"
             type="button"
-            onClick={() => handleOpenPopup(newCardPopup)}
           />
         </button>
       </section>
@@ -87,10 +95,9 @@ export default function Main() {
       {/* Apresentação dos cards   */}
       <ul className="cards">
         {cards.map((card) => (
-          <Card key={card._id} card={card} />
+          <Card key={card._id} card={card} handleOpenPopup={handleOpenPopup} />
         ))}
       </ul>
-
       {popup && (
         <Popup onClose={handleClosePopup} title={popup.title}>
           {popup.children}

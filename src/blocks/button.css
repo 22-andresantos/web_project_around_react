@@ -133,11 +133,11 @@
 }
 
 @media screen and (max-width: 740px) {
-  .button__submit {
+  /* .button {
     width: 238px;
     height: 46px;
     font-size: 14px;
-  }
+  } */
 
   .button__profile-open {
     max-width: 18px;
@@ -155,5 +155,21 @@
     height: 50px;
     padding: 0;
     margin: auto;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .button {
+    width: 238px;
+    height: 46px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .button {
+    width: 200px;
+    height: 46px;
+    font-size: 14px;
   }
 }
