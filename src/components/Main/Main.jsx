@@ -1,4 +1,4 @@
-import button_edit from "../../images/button_edit.png";
+import button_edit from "../../images/button_avatar.png";
 import button_card from "../../images/button_card.png";
 import Avatar from "../../images/avatar.png";
 import Popup from "../Main/components/Popup/Popup.jsx";
