@@ -1,7 +1,7 @@
 import ImagePopup from "../ImagePopup/ImagePopup.jsx";
 
 export default function Card(props) {
-  const { name, link, isLiked } = props.card;
+  const { name, link } = props.card;
   const { handleOpenPopup } = props;
   const imageComponent = { children: <ImagePopup card={props.card} /> };
 
