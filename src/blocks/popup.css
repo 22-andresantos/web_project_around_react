@@ -22,7 +22,7 @@
 
 .popup__content {
   width: 430px;
-  height: 330px;
+  height: 360px;
   background-color: #ffffff;
   border-radius: 10px 10px 10px 10px;
   -webkit-box-shadow: 0px 0px 25px 0px #00000026;
@@ -34,9 +34,11 @@
   align-items: flex-start;
   z-index: 2;
   padding: 34px 0 0 36px;
+  margin: 0;
 }
 
 .popup__title {
+  font-family: "Inter";
   font-size: 24px;
   font-weight: 900;
   text-align: left;
@@ -58,7 +60,7 @@
 
 .popup__input {
   border: none;
-  font-family: Inter;
+  font-family: "Inter";
   max-width: 358px;
   font-size: 14px;
   font-weight: 400;
@@ -115,7 +117,7 @@
   width: 291px;
   height: 12px;
   font-size: 12px;
-  font-weight: 400;
+
   text-align: left;
   text-underline-position: from-font;
   color: #ffffff;
@@ -124,6 +126,7 @@
 }
 
 .popup__input-error {
+  font-family: "Inter";
   font-size: 12px;
   color: red;
   width: 400px;

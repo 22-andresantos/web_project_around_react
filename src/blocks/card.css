@@ -30,6 +30,7 @@
 }
 
 .card__title {
+  font-family: "Inter";
   font-size: 24px;
   font-weight: 900;
   text-align: left;
