@@ -19,3 +19,8 @@ Projeto 13 - Tripleten - Introdução ao React
 início : 07/01/2026
 1 - Usando vite@latest.
 2 - Atualizando o código para JSX.
+
+Projeto 14 - Tripleten - Roteamento React e Gerenciamento de Estado
+início : 23/02/2026
+1 - React Router.
+2 - React e Dados.
