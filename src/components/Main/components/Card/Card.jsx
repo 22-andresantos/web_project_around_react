@@ -1,17 +1,12 @@
-import { useContext } from "react";
-import { CurrentUserContext } from "../../../../contexts/CurrentUserContext.js";
 import ImagePopup from "../ImagePopup/ImagePopup.jsx";
 
 export default function Card(props) {
-  const { name, link, likes } = props.card;
+  // const { currentUser } = useContext(CurrentUserContext);
+  const { name, link, isLiked } = props.card;
   const { card, handleOpenPopup, onCardLike, onCardDelete } = props;
   const imageComponent = { children: <ImagePopup card={props.card} /> };
 
-  // Dados do usuário atual
-  const currentUser = useContext(CurrentUserContext);
-
-  // Verificar se o array de likes contém o ID do usuário atual
-  const isLiked = likes && likes.some((like) => like._id === currentUser._id);
+  // Muda a classe do botão de like dependendo se o card já foi curtido ou não
   const cardLikeButtonClassName = `button__like ${isLiked ? `button__like_active` : ""}`;
 
   // Deletar card

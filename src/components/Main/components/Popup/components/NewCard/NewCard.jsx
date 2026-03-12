@@ -1,12 +1,29 @@
+import { useRef } from "react";
+
 import line_2 from "../../../../../../images/line_2.png";
 
-export default function NewCard() {
+export default function NewCard({ onAddPlaceSubmit }) {
+  const nameRef = useRef(); // Cria uma referência inicial como null
+  const linkRef = useRef(); // Cria uma referência inicial como null
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    onAddPlaceSubmit({
+      name: nameRef.current.value,
+      link: linkRef.current.value,
+    });
+    // Limpa os campos do formulário após o envio
+    nameRef.current.value = "";
+    linkRef.current.value = "";
+  }
+
   return (
     <form
       className="popup__form "
       name="card-form"
       id="new-card-form"
       noValidate
+      onSubmit={handleSubmit}
     >
       <label className="popup__field">
         <input
@@ -18,6 +35,7 @@ export default function NewCard() {
           minlength="1"
           maxlength="30"
           required
+          ref={nameRef} // Atribui a referência ao input do nome
         />
 
         <span className="popup__error" id="card-name-error"></span>
@@ -33,6 +51,7 @@ export default function NewCard() {
           name="link"
           placeholder="image link"
           required
+          ref={linkRef} // Atribui a referência ao input do link
         />
 
         <span className="popup__error" id="card-link-error"></span>
