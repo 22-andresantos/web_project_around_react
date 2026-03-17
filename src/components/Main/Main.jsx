@@ -3,6 +3,7 @@ import button_card from "../../images/button_card.png";
 import NewCard from "../Main/components/Popup/components/NewCard/NewCard.jsx";
 import EditAvatar from "../Main/components/Popup/components/EditAvatar/EditAvatar.jsx";
 import EditProfile from "../Main/components/Popup/components/EditProfile/EditProfile.jsx";
+import Card from "../Main/components/Card/Card.jsx";
 
 import { useContext } from "react";
 
@@ -11,8 +12,8 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 export default function Main({
   onOpenPopup,
   cards,
-  handleCardLike,
-  handleCardDelete,
+  onCardLike,
+  onCardDelete,
   HandleAddPlaceSubmit,
 }) {
   const { currentUser, handleUpdateUser, handleUpdateAvatar } =
@@ -20,7 +21,7 @@ export default function Main({
 
   const newCardPopup = {
     title: "New card",
-    children: <NewCard onAdd={HandleAddPlaceSubmit} />,
+    children: <NewCard onAddPlaceSubmit={HandleAddPlaceSubmit} />,
   };
 
   const newEditAvatar = {
@@ -34,7 +35,7 @@ export default function Main({
   };
 
   return (
-    <main>
+    <main className="content">
       <section className="profile">
         <div className="profile__overlay">
           <img
@@ -79,20 +80,20 @@ export default function Main({
             type="button"
           />
         </button>
-
-        {/* Apresentação dos cards  */}
-        <ul className="cards">
-          {cards.map((card) => (
-            <NewCard
-              key={card._id}
-              card={card}
-              handleOpenPopup={onOpenPopup} /*função abrir imagem*/
-              onCardLike={handleCardLike} /* função Like no card*/
-              onCardDelete={handleCardDelete} /* função deletar card*/
-            />
-          ))}
-        </ul>
       </section>
+
+      {/* Apresentação dos cards  */}
+      <ul className="cards">
+        {cards.map((card) => (
+          <Card
+            key={card._id}
+            card={card}
+            handleOpenPopup={onOpenPopup} /*função abrir imagem*/
+            onCardLike={onCardLike} /* função Like no card*/
+            onCardDelete={onCardDelete} /* função deletar card*/
+          />
+        ))}
+      </ul>
     </main>
   );
 }

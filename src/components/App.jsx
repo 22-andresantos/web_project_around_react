@@ -13,17 +13,32 @@ export default function App() {
   const [popup, setPopup] = useState(null);
   const [cards, setCards] = useState([]);
 
-  // Carregar dados User e Cards
+  // carregar dados do User
   useEffect(() => {
-    Promise.all([api.getUserInfo(), api.getInitialCards()])
+    (async () => {
+      await api
+        .getUserInfo()
+        .then((data) => {
+          setCurrentUser(data);
+        })
+        .catch((err) => {
+          console.log(`Erro dos dados do usuário: ${err}`);
+        });
+    })();
+  }, []);
 
-      .then(([userData, cardsData]) => {
-        setCurrentUser(userData);
-        setCards(cardsData);
-      })
-      .catch((err) => {
-        console.log(`Erro dos dados do usuário: ${err}`);
-      });
+  // carregar dados dos Cards
+  useEffect(() => {
+    (async () => {
+      await api
+        .getInitialCards()
+        .then((data) => {
+          setCards(data);
+        })
+        .catch((err) => {
+          console.log(`Erro dos dados dos cards: ${err}`);
+        });
+    })();
   }, []);
 
   function handleOpenPopup(popup) {
@@ -34,6 +49,7 @@ export default function App() {
     setPopup(null);
   }
 
+  // like ou dislike o card
   async function handleCardLike(card) {
     // Verificar mais uma vez se esse cartão já foi curtido
     const isLiked = card.isLiked;
@@ -53,25 +69,27 @@ export default function App() {
       .catch((error) => console.error(error));
   }
 
+  // deletar o card
   function handleCardDelete(card) {
     api
       .deleteCard(card._id)
       .then(() => {
         setCards((state) => state.filter((item) => item._id !== card._id));
+        console.log(`Card com ID ${card._id} deletado com sucesso.`);
       })
       .catch((error) => console.error(error));
   }
 
-  // manipulador para adicionar Card~
-  function HandleAddPlaceSubmit(newCardData) {
+  // manipulador para adicionar Card
+  const handleAddPlaceSubmit = (newCardDAta) => {
     api
-      .addNewCard(newCardData)
+      .addNewCard(newCardDAta)
       .then((newCard) => {
         setCards([newCard, ...cards]);
         handleClosePopup();
       })
       .catch((error) => console.error(error));
-  }
+  };
 
   // Solicitar via API nome e sobre mim e atualizar o estado do usuário atual
   const handleUpdateUser = (data) => {
@@ -88,23 +106,25 @@ export default function App() {
     })();
   };
 
+  // solicitar via API o link do avatar e atualizar o estado do usuário atual
   const handleUpdateAvatar = (data) => {
-    (async () => {
-      await api
-        .updateAvatar(data)
-        .then((newData) => {
-          setCurrentUser(newData);
-          handleClosePopup();
-        })
-        .catch((err) => {
-          console.log(`Erro ao atualizar o avatar do usuário: ${err}`);
-        });
-    })();
+    api
+      .updateAvatar(data)
+      .then((newData) => {
+        setCurrentUser(newData);
+        handleClosePopup();
+      })
+      .catch((err) => console.error(`Erro: ${err}`));
   };
 
   return (
     <CurrentUserContext.Provider
-      value={{ currentUser, handleUpdateUser, handleUpdateAvatar }}
+      value={{
+        currentUser,
+        handleUpdateUser,
+        handleUpdateAvatar,
+        handleAddPlaceSubmit,
+      }}
     >
       <div className="page">
         <Header />
@@ -114,7 +134,7 @@ export default function App() {
           cards={cards}
           onCardLike={handleCardLike}
           onCardDelete={handleCardDelete}
-          onAddPLaceSubmit={HandleAddPlaceSubmit}
+          onAddPlaceSubmit={handleAddPlaceSubmit}
         />
 
         <Footer />

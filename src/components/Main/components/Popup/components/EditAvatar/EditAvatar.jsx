@@ -9,7 +9,7 @@ export default function EditAvatar({ onUpdateAvatar }) {
 
     // Acessamos o valor através de .current.value
     onUpdateAvatar({
-      avatar: (avatarRef.current.value = ""),
+      avatar: avatarRef.current.value,
     });
   }
 
@@ -27,7 +27,7 @@ export default function EditAvatar({ onUpdateAvatar }) {
           className="popup__input popup__input_type_avatar-url"
           type="url"
           id="avatar__url"
-          name="avatar-url"
+          name="avatar"
           placeholder="Image url"
           required
         />

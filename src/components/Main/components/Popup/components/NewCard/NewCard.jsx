@@ -1,21 +1,22 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { CurrentUserContext } from "../../../../../../contexts/CurrentUserContext.js";
 
 import line_2 from "../../../../../../images/line_2.png";
 
-export default function NewCard({ onAddPlaceSubmit }) {
+export default function NewCard() {
+  const { handleAddPlaceSubmit } = useContext(CurrentUserContext);
   const nameRef = useRef(); // Cria uma referência inicial como null
   const linkRef = useRef(); // Cria uma referência inicial como null
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    onAddPlaceSubmit({
+    handleAddPlaceSubmit({
       name: nameRef.current.value,
       link: linkRef.current.value,
     });
     // Limpa os campos do formulário após o envio
-    nameRef.current.value = "";
-    linkRef.current.value = "";
-  }
+    e.target.reset();
+  };
 
   return (
     <form

@@ -5,8 +5,8 @@
   display: grid;
   -ms-grid-columns: 282px 17px 282px 17px 282px;
   grid-template-columns: repeat(3, 282px);
-  -ms-grid-rows: 361px 20px 361px;
-  grid-template-rows: repeat(2, 361px);
+
+  grid-auto-rows: min-content;
   gap: 20px 17px;
 }
 
@@ -50,31 +50,28 @@
 @media screen and (max-width: 900px) {
   .cards {
     margin-top: 36px;
-    display: -ms-grid;
-    display: grid;
+
     -ms-grid-row-align: center;
     -ms-grid-column-align: center;
     place-self: center;
     -ms-grid-columns: 282px 17px 282px;
     grid-template-columns: repeat(2, 282px);
-    -ms-grid-rows: 361px 20px 361px 20px 361px;
-    grid-template-rows: repeat(3, 361px);
-    gap: 20px 17px;
+
+    grid-template-rows: auto;
   }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 740px) {
   .cards {
     margin-top: 36px;
-    display: -ms-grid;
-    display: grid;
+
     -ms-grid-row-align: center;
     -ms-grid-column-align: center;
     place-self: center;
     -ms-grid-columns: 282px;
     grid-template-columns: 282px;
-    -ms-grid-rows: 361px 20px 361px 20px 361px 20px 361px 20px 361px 20px 361px;
-    grid-template-rows: repeat(6, 361px);
+    grid-template-rows: auto;
+
     gap: 20px;
   }
 }
