@@ -1,8 +1,8 @@
 import button_edit from "../../images/button_avatar.png";
 import button_card from "../../images/button_card.png";
-import NewCard from "../Main/components/Popup/NewCard/NewCard.jsx";
-import EditAvatar from "../Main/components/Popup/EditAvatar/EditAvatar.jsx";
-import EditProfile from "../Main/components/Popup/EditProfile/EditProfile.jsx";
+import NewCard from "./Popup/NewCard/NewCard.jsx";
+import EditAvatar from "./Popup/EditAvatar/EditAvatar.jsx";
+import EditProfile from "./Popup/EditProfile/EditProfile.jsx";
 import Card from "../Main/components/Card/Card.jsx";
 
 import { useContext } from "react";

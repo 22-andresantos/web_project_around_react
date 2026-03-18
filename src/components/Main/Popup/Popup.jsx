@@ -1,4 +1,4 @@
-import buttonCloseCard from "../../../../images/button_close.png";
+import buttonCloseCard from "../../../images/button_close.png";
 import { createPortal } from "react-dom";
 
 export default function Popup(props) {
