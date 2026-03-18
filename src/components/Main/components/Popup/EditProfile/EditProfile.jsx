@@ -1,6 +1,6 @@
-import line_2 from "../../../../../../images/line_2.png";
+import line_2 from "../../../../../images/line_2.png";
 import { useState, useContext } from "react";
-import { CurrentUserContext } from "../../../../../../contexts/CurrentUserContext.js";
+import { CurrentUserContext } from "../../../../../contexts/CurrentUserContext.js";
 
 export default function EditProfile() {
   const currentUseContext = useContext(CurrentUserContext); // Obtém o objeto de usuário atual

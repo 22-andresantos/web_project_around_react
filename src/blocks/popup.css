@@ -235,7 +235,7 @@
   .popup__content {
     width: 240px;
     height: 299px;
-    padding: 30px 0 0 26px;
+    padding: 0;
   }
 
   .popup__title {

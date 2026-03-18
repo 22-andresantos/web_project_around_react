@@ -1,7 +1,7 @@
 import { useContext, useRef } from "react";
-import { CurrentUserContext } from "../../../../../../contexts/CurrentUserContext.js";
+import { CurrentUserContext } from "../../../../../contexts/CurrentUserContext.js";
 
-import line_2 from "../../../../../../images/line_2.png";
+import line_2 from "../../../../../images/line_2.png";
 
 export default function NewCard() {
   const { handleAddPlaceSubmit } = useContext(CurrentUserContext);

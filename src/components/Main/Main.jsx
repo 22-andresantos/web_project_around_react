@@ -1,27 +1,21 @@
 import button_edit from "../../images/button_avatar.png";
 import button_card from "../../images/button_card.png";
-import NewCard from "../Main/components/Popup/components/NewCard/NewCard.jsx";
-import EditAvatar from "../Main/components/Popup/components/EditAvatar/EditAvatar.jsx";
-import EditProfile from "../Main/components/Popup/components/EditProfile/EditProfile.jsx";
+import NewCard from "../Main/components/Popup/NewCard/NewCard.jsx";
+import EditAvatar from "../Main/components/Popup/EditAvatar/EditAvatar.jsx";
+import EditProfile from "../Main/components/Popup/EditProfile/EditProfile.jsx";
 import Card from "../Main/components/Card/Card.jsx";
 
 import { useContext } from "react";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
-export default function Main({
-  onOpenPopup,
-  cards,
-  onCardLike,
-  onCardDelete,
-  HandleAddPlaceSubmit,
-}) {
+export default function Main({ onOpenPopup, cards, onCardLike, onCardDelete }) {
   const { currentUser, handleUpdateUser, handleUpdateAvatar } =
     useContext(CurrentUserContext);
 
   const newCardPopup = {
     title: "New card",
-    children: <NewCard onAddPlaceSubmit={HandleAddPlaceSubmit} />,
+    children: <NewCard />,
   };
 
   const newEditAvatar = {

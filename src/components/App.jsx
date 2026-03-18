@@ -75,15 +75,14 @@ export default function App() {
       .deleteCard(card._id)
       .then(() => {
         setCards((state) => state.filter((item) => item._id !== card._id));
-        console.log(`Card com ID ${card._id} deletado com sucesso.`);
       })
       .catch((error) => console.error(error));
   }
 
   // manipulador para adicionar Card
-  const handleAddPlaceSubmit = (newCardDAta) => {
+  const handleAddPlaceSubmit = (newCardData) => {
     api
-      .addNewCard(newCardDAta)
+      .addNewCard(newCardData)
       .then((newCard) => {
         setCards([newCard, ...cards]);
         handleClosePopup();

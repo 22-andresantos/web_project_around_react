@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import line_2 from "../../../../../../images/line_2.png";
+import line_2 from "../../../../../images/line_2.png";
 
 export default function EditAvatar({ onUpdateAvatar }) {
   const avatarRef = useRef(); // Cria uma referência inicial como null

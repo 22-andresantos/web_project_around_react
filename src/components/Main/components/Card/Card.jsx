@@ -1,4 +1,4 @@
-import ImagePopup from "../ImagePopup/ImagePopup.jsx";
+import ImagePopup from "../Popup/ImagePopup/ImagePopup.jsx";
 
 export default function Card(props) {
   // const { currentUser } = useContext(CurrentUserContext);
