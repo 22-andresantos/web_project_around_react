@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Header from "./Header/Header.jsx";
 import Main from "./Main/Main.jsx";
 import Footer from "./Footer/Footer.jsx";
-import Popup from "./Main/Popup/Popup.jsx";
 
 import { api } from "../utils/api.js";
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
@@ -12,6 +11,14 @@ export default function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [popup, setPopup] = useState(null);
   const [cards, setCards] = useState([]);
+
+  function handleOpenPopup(popup) {
+    setPopup(popup);
+  }
+
+  function handleClosePopup() {
+    setPopup(null);
+  }
 
   // carregar dados do User
   useEffect(() => {
@@ -40,14 +47,6 @@ export default function App() {
         });
     })();
   }, []);
-
-  function handleOpenPopup(popup) {
-    setPopup(popup);
-  }
-
-  function handleClosePopup() {
-    setPopup(null);
-  }
 
   // like ou dislike o card
   async function handleCardLike(card) {
@@ -129,20 +128,15 @@ export default function App() {
         <Header />
 
         <Main
-          onOpenPopup={handleOpenPopup}
           cards={cards}
           onCardLike={handleCardLike}
           onCardDelete={handleCardDelete}
-          onAddPlaceSubmit={handleAddPlaceSubmit}
+          onOpenPopup={handleOpenPopup}
+          onClosePopup={handleClosePopup}
+          popup={popup}
         />
 
         <Footer />
-
-        {popup && (
-          <Popup onClose={handleClosePopup} title={popup.title}>
-            {popup.children}
-          </Popup>
-        )}
       </div>
     </CurrentUserContext.Provider>
   );

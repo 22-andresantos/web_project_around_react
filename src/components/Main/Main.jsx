@@ -1,15 +1,23 @@
+import { useContext } from "react";
+
 import button_edit from "../../images/button_avatar.png";
 import button_card from "../../images/button_card.png";
 import NewCard from "./Popup/NewCard/NewCard.jsx";
 import EditAvatar from "./Popup/EditAvatar/EditAvatar.jsx";
 import EditProfile from "./Popup/EditProfile/EditProfile.jsx";
 import Card from "../Main/components/Card/Card.jsx";
-
-import { useContext } from "react";
+import Popup from "./Popup/Popup.jsx";
 
 import { CurrentUserContext } from "../../contexts/CurrentUserContext.js";
 
-export default function Main({ onOpenPopup, cards, onCardLike, onCardDelete }) {
+export default function Main({
+  cards,
+  onCardLike,
+  onCardDelete,
+  popup,
+  onOpenPopup,
+  onClosePopup,
+}) {
   const { currentUser, handleUpdateUser, handleUpdateAvatar } =
     useContext(CurrentUserContext);
 
@@ -88,6 +96,12 @@ export default function Main({ onOpenPopup, cards, onCardLike, onCardDelete }) {
           />
         ))}
       </ul>
+
+      {popup && (
+        <Popup onClose={onClosePopup} title={popup.title}>
+          {popup.children}
+        </Popup>
+      )}
     </main>
   );
 }
